@@ -1,0 +1,387 @@
+/* ============================================================
+   Sebastiano Martelli — personal site
+   Shared stylesheet. Warm, clean, classic-academic.
+   Palette:  paper #faf6ec · ink #201b14 · terracotta #b1542f
+             muted #6f6557 · rule rgba(32,27,20,.14)
+   Type:     EB Garamond (body) · JetBrains Mono (labels)
+   ============================================================ */
+
+:root {
+  --paper:   #faf6ec;
+  --ink:     #201b14;
+  --accent:  #b1542f;
+  --accent-2:#8f4324;
+  --muted:   #6f6557;
+  --rule:    rgba(32, 27, 20, 0.14);
+  --rule-strong: rgba(32, 27, 20, 0.5);
+  --maxw: 820px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  line-height: 1.62;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: rgba(177, 84, 47, 0.18); }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(177, 84, 47, 0.35);
+  transition: color .12s, border-color .12s, background .12s;
+}
+a:hover {
+  color: var(--accent-2);
+  border-bottom-color: var(--accent-2);
+}
+
+/* ---- Layout shell ---------------------------------------- */
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ---- Masthead / nav -------------------------------------- */
+
+.site-head {
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+}
+.site-head .wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  padding-top: 26px;
+  padding-bottom: 16px;
+}
+.brand {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: none;
+  white-space: nowrap;
+}
+.brand:hover { color: var(--ink); }
+.brand .brand-sub {
+  display: block;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  margin-top: 5px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 22px;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.nav a {
+  color: var(--ink);
+  border: none;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+}
+.nav a:hover { color: var(--accent); }
+.nav a.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ---- Page body ------------------------------------------- */
+
+main { padding: 52px 0 40px; }
+
+.lead {
+  font-size: 21px;
+  line-height: 1.6;
+}
+.lead .hi {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+p { margin: 0 0 18px; text-wrap: pretty; }
+p:last-child { margin-bottom: 0; }
+
+/* Home hero: text + photo */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  gap: 48px;
+  align-items: start;
+}
+.hero-photo figcaption {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+/* Striped photo placeholder — swap the <div> for <img src="photo.jpg"> */
+.photo-ph {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--rule-strong);
+  background-image:
+    repeating-linear-gradient(45deg, #efe4cd 0 6px, #e6d8ba 6px 12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: #877a64;
+  padding: 12px;
+}
+img.photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid var(--rule-strong);
+  display: block;
+}
+
+/* ---- Section headers ------------------------------------- */
+
+.section-title {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 52px 0 6px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--ink);
+}
+.section-title:first-of-type { margin-top: 0; }
+
+.section-note {
+  font-size: 16px;
+  color: var(--muted);
+  font-style: italic;
+  margin: 14px 0 4px;
+}
+
+h2.plain {
+  font-size: 27px;
+  font-weight: 600;
+  margin: 44px 0 10px;
+  letter-spacing: -0.01em;
+}
+
+/* ---- Interests inline list ------------------------------- */
+
+.interests {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
+.interests li {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
+  padding: 5px 11px;
+}
+
+/* ---- Publication list ------------------------------------ */
+
+.paper {
+  padding: 20px 0;
+  border-top: 1px solid var(--rule);
+}
+.paper:first-of-type { border-top: none; }
+.paper-title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0 0 4px;
+}
+.paper-title a { color: var(--ink); border-bottom-color: rgba(177,84,47,.4); }
+.paper-title a:hover { color: var(--accent); }
+.paper-authors { font-style: italic; color: var(--ink); margin: 0 0 2px; }
+.paper-venue   { color: var(--muted); margin: 0 0 8px; }
+.paper-venue .status {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-style: normal;
+}
+.paper-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.03em;
+}
+.paper-links a { color: var(--accent); border: none; }
+.paper-links a:hover { text-decoration: underline; }
+
+/* ---- Code & data cards ----------------------------------- */
+
+.repo {
+  padding: 16px 0;
+  border-top: 1px solid var(--rule);
+}
+.repo:first-of-type { border-top: none; }
+.repo-name {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+.repo-name .gh { color: var(--accent); }
+.repo p { font-size: 17px; margin: 0 0 6px; }
+.repo a.repo-link {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  color: var(--accent);
+  border: none;
+}
+
+/* ---- Teaching table -------------------------------------- */
+
+.teach {
+  width: 100%;
+  border-collapse: collapse;
+}
+.teach td {
+  padding: 16px 0;
+  border-top: 1px solid var(--rule);
+  vertical-align: top;
+}
+.teach tr:first-child td { border-top: none; }
+.teach .t-term {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  color: var(--muted);
+  width: 96px;
+  white-space: nowrap;
+  padding-top: 20px;
+}
+.teach .t-course { font-style: italic; font-size: 20px; }
+.teach .t-role {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  font-style: normal;
+  margin-top: 3px;
+}
+.teach .t-where {
+  text-align: right;
+  color: var(--muted);
+  font-size: 16px;
+  width: 210px;
+}
+
+/* ---- Contact --------------------------------------------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 14px 28px;
+  align-items: baseline;
+  margin-top: 8px;
+}
+.contact-grid dt {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.contact-grid dd { margin: 0; }
+
+/* ---- CV button ------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  padding: 11px 18px;
+  border: 1px solid var(--ink);
+}
+.btn:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+
+/* ---- Footer ---------------------------------------------- */
+
+.site-foot {
+  border-top: 1px solid var(--ink);
+  margin-top: 48px;
+}
+.site-foot .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 20px;
+  padding: 20px 32px 34px;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.site-foot a { color: var(--muted); border: none; }
+.site-foot a:hover { color: var(--accent); }
+.foot-nav { display: flex; flex-wrap: wrap; gap: 16px; }
+
+/* ---- Responsive ------------------------------------------ */
+
+@media (max-width: 680px) {
+  body { font-size: 18px; }
+  .wrap { padding: 0 22px; }
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .hero-photo {
+    max-width: 220px;
+  }
+  .site-head .wrap { padding-top: 20px; }
+  main { padding: 36px 0 32px; }
+  .teach .t-where { display: none; }
+  .contact-grid { grid-template-columns: 1fr; gap: 4px 0; }
+  .contact-grid dt { margin-top: 12px; }
+}
