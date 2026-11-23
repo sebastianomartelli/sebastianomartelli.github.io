@@ -304,6 +304,14 @@ h2.plain {
   font-style: normal;
   margin-top: 3px;
 }
+.teach .ese-links {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 13px;
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
 .teach .t-where {
   text-align: right;
   color: var(--muted);

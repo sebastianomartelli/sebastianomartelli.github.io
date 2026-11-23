@@ -29,37 +29,26 @@
 
   <main>
     <div class="wrap">
-      <p class="lead">I teach and tutor in microeconometrics, labour economics, and statistics. Course materials and problem sets live on the respective Moodle pages; feel free to <a href="contact.html">email me</a> for slides or references.</p>
+      <p class="lead">I am the teaching assistant for <em>Fondamenti di Economia</em>. For any information about the course or the exercises, feel free to <a href="mailto:sebastiano.martelli@unitn.it">email me</a>.</p>
 
       <h2 class="section-title">As Teaching Assistant</h2>
       <table class="teach">
         <tr>
-          <td class="t-term">2025/26</td>
-          <td><span class="t-course">Microeconometrics</span> <span style="color:var(--muted);font-size:15px;">(MSc)</span>
-            <div class="t-role">Teaching Assistant</div></td>
+          <td class="t-term">2026/27</td>
+          <td><span class="t-course">Fondamenti di Economia</span> <span style="color:var(--muted);font-size:15px;">(BSc)</span>
+            <div class="t-role">Teaching Assistant</div>
+            <div class="ese-links" id="ese-links" data-folder="ese_pdf" data-prefix="ese" data-total="8"></div></td>
           <td class="t-where">University of Trento</td>
-        </tr>
-        <tr>
-          <td class="t-term">2024/25</td>
-          <td><span class="t-course">Labour Economics</span> <span style="color:var(--muted);font-size:15px;">(BSc)</span>
-            <div class="t-role">Teaching Assistant</div></td>
-          <td class="t-where">University of Trento</td>
-        </tr>
-        <tr>
-          <td class="t-term">2024/25</td>
-          <td><span class="t-course">Statistics for Economics</span> <span style="color:var(--muted);font-size:15px;">(BSc)</span>
-            <div class="t-role">Tutor</div></td>
-          <td class="t-where">Free University of Bolzano</td>
         </tr>
       </table>
 
       <h2 class="section-title">Reading Groups</h2>
       <table class="teach">
         <tr>
-          <td class="t-term">2023–</td>
-          <td><span class="t-course">Inequality &amp; Mobility reading group</span>
+          <td class="t-term">2025–</td>
+          <td><span class="t-course">PhD Reading Group</span>
             <div class="t-role">Co-organiser</div></td>
-          <td class="t-where">Trento · Bolzano</td>
+          <td class="t-where">Bolzano</td>
         </tr>
       </table>
     </div>
@@ -70,5 +59,33 @@
       <span>© 2026 Sebastiano Martelli</span>
     </div>
   </footer>
+
+  <script>
+    // Builds the links ese1, ese2, ... from the folder. Only files that exist are shown,
+    // so you can upload the exercises one at a time. To change the number of
+    // exercises, edit data-total in the #ese-links div above.
+    (function () {
+      var box = document.getElementById("ese-links");
+      var total = parseInt(box.dataset.total, 10);
+      for (var i = 1; i <= total; i++) {
+        (function (n) {
+          var url = box.dataset.folder + "/" + box.dataset.prefix + n + ".pdf";
+          fetch(url, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) return;
+            var a = document.createElement("a");
+            a.href = url;
+            a.textContent = box.dataset.prefix + n;
+            a.target = "_blank";
+            a.dataset.n = n;
+            // keep numeric order even if responses arrive out of order
+            var next = Array.prototype.find.call(box.children, function (el) {
+              return parseInt(el.dataset.n, 10) > n;
+            });
+            box.insertBefore(a, next || null);
+          });
+        })(i);
+      }
+    })();
+  </script>
 </body>
 </html>
