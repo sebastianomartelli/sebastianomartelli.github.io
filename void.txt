@@ -39,3 +39,11 @@ Adding Code / Repo
         <p>An R package and replication template for computing rank–rank and IGE intergenerational-mobility measures from linked administrative data.</p>
         <a class="repo-link" href="#">github.com/smartelli/unitn-mobility</a>
       </article>
+
+
+<dt>Elsewhere</dt>
+        <dd>
+          <a href="#">Google Scholar</a> &nbsp;·&nbsp;
+          <a href="#">GitHub</a> &nbsp;·&nbsp;
+          ORCID 0000-0000-0000-0000
+        </dd>
