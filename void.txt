@@ -1,0 +1,41 @@
+ 
+
+--- RESEARCH VOID ---
+
+
+
+You can find my <a href="cv.html">CV</a> here and my <a href="#">Google&nbsp;Scholar</a> profile here. 
+Drafts not linked below are available on request.
+
+
+
+Example for adding papers  
+
+      <article class="paper">
+        <p class="paper-title"><a href="#">TITLE</a></p>
+        <p class="paper-authors">AUTHORS</p>
+        <p class="paper-venue">JOURNAL / WORKING PAPER WHERE ARE SUMMITTED ESSENTIALLY</p>
+        <div class="paper-links"> 
+          <a href="#">[ pdf ]</a>
+          <a href="#">[ ssrn ]</a>
+          <a href="#">[ slides ]</a>
+        </div>
+      </article>
+
+Adding Work in progress
+
+ <article class="paper">
+        <p class="paper-title"></p>
+        <p class="paper-authors">Sebastiano Martelli</p>
+        <p class="paper-venue">Early-stage project</p>
+      </article>
+
+
+Adding Code / Repo
+
+
+      <article class="repo">
+        <p class="repo-name"><span class="gh">↗</span> unitn-mobility</p>
+        <p>An R package and replication template for computing rank–rank and IGE intergenerational-mobility measures from linked administrative data.</p>
+        <a class="repo-link" href="#">github.com/smartelli/unitn-mobility</a>
+      </article>
